@@ -1,4 +1,5 @@
 import static java.time.temporal.ChronoUnit.HOURS;
+import static java.time.temporal.ChronoUnit.MINUTES;
 
 import java.time.LocalTime;
 import java.util.logging.Logger;
@@ -16,8 +17,8 @@ public class App {
         var startPause = times.get(1);
         var endPause = times.get(2);
 
-        var firstShift = HOURS.between(startWorking, startPause);
-        var endWork = endPause.plus(TOTAL, HOURS).minus(firstShift, HOURS);
+        var firstShift = MINUTES.between(startWorking, startPause);
+        var endWork = endPause.plus(TOTAL, HOURS).minus(firstShift, MINUTES);
 
         var message = String.format("Seu expediente termina às %s", endWork);
         Logger.getGlobal().info(message);
